@@ -23,6 +23,7 @@ while True:
             pygame.quit()
             exit()
         if event.type == pygame.MOUSEMOTION:
+            print('lol')
 
     screen.blit(sky_surface, (0,0))
     screen.blit(ground_surface, (0,300))
