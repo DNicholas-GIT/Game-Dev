@@ -1,28 +1,7 @@
 import pygame
-from random import randint
+
 from sys import exit
-# from dataclasses import dataclasses
 
-
-# define some colors (R, G, B)
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-DARKGREY = (40, 40, 40)
-LIGHTGREY = (100, 100, 100)
-GREEN = (0, 255, 0)
-RED = (255, 0, 0)
-YELLOW = (255, 255, 0)
-
-# game settings
-WIDTH = 1024   # 16 * 64 or 32 * 32 or 64 * 16
-HEIGHT = 768  # 16 * 48 or 32 * 24 or 64 * 12
-FPS = 60
-TITLE = "Tilemap Demo"
-BGCOLOR = DARKGREY
-
-TILESIZE = 32
-GRIDWIDTH = WIDTH / TILESIZE
-GRIDHEIGHT = HEIGHT / TILESIZE
 
 # Player settings
 PLAYER_SPEED = 300
@@ -45,39 +24,6 @@ title_rect = title.get_rect(center = (800,400))
 
 start_new_game = test_font.render(' New Game ', True, (161, 24, 14))
 start_new_game_rect = start_new_game.get_rect(center = (800, 800))
-
-
-class Map:
-    def __init__(self, filename):
-        self.data = []
-        with open(filename, 'rt') as f:
-            for line in f:
-                self.data.append(line.strip())
-
-        self.tilewidth = len(self.data[0])
-        self.tileheight = len(self.data)
-        self.width = self.tilewidth * TILESIZE
-        self.height = self.tileheight * TILESIZE
-
-class Camera:
-    def __init__(self, width, height):
-        self.camera = pygame.Rect(0, 0, width, height)
-        self.width = width
-        self.height = height
-
-    def apply(self, entity):
-        return entity.rect.move(self.camera.topleft)
-
-    def update(self, target):
-        x = -target.rect.x + int(WIDTH / 2)
-        y = -target.rect.y + int(HEIGHT / 2)
-
-        # Limit Scrolling
-        x = min(0, x)
-        y = min(0, y)
-        x = max(-(self.width - WIDTH), x)
-        y = max(-(self.height - HEIGHT), y)
-        self.camera = pg.Rect(x, y, self.width, self.height)
 
 
 

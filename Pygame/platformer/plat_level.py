@@ -1,5 +1,6 @@
 import pygame
 from plat_tiles import Tile
+from plat_settings import tile_size
 
 class Level:
     def __init__(self, level_data, surface):
@@ -8,9 +9,13 @@ class Level:
     
     def setup_level(self, layout):
         self.plat_tiles = pygame.sprite.Group()
-        for row in layout:
-            print(row)
-
+        for row_index, row in enumerate(layout):
+            for col_index, cell in enumerate(row):
+                if cell == 'X':
+                    x = col_index * tile_size
+                    y = row_index * tile_size
+                    tile = Tile((x,y), tile_size)
+                    self.plat_tiles.add(tile)
 
     def run(self):
         self.plat_tiles.draw(self.display_surface)
