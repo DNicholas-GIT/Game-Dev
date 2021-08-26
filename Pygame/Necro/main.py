@@ -3,9 +3,6 @@ import pygame
 from sys import exit
 
 
-# Player settings
-PLAYER_SPEED = 300
-
 
 pygame.init()
 screen = pygame.display.set_mode((1600,1200))
@@ -99,21 +96,6 @@ while True:
         blue_soldier.draw(screen)
         white_soldier.draw(screen)
 
-        # if event.type == pygame.MOUSEWHEEL:
-        #     if event.key == pygame.BUTTON_WHEELUP:
-        #         screen.blit(zoom_green_field,(0,0))
-        #
-        # if event.type == pygame.MOUSEWHEEL:
-        #     if event.key == pygame.BUTTON_WHEELDOWN:
-        #         screen.blit(green_field,(0,0))
-
-        # screen.blit(player_char, player_rect)
-        # screen.blit(red_char, red_char_rect)
-        # screen.blit(blue_char, blue_char_rect)
-        # screen.blit(white_char, white_char_rect)
-
-
-
 
 
     else:
@@ -131,6 +113,6 @@ while True:
 
 
     pygame.display.update()
-    clock.tick(50)
+    clock.tick(60)
 
 
